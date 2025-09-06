@@ -47,7 +47,7 @@ const About = ({ darkMode }) => {
             <div className="about-layout">
               <motion.div variants={itemVariants} className="profile-section">
                 <div className="profile-image-container">
-                  <img src="/my_pic.jpg" alt="Muzammil Ahamed Khan" className="profile-image" />
+                  <img src="/MY_pic.jpg" alt="Muzammil Ahamed Khan" className="profile-image" />
                 </div>
                 <motion.h3 variants={itemVariants} className="profile-name">
                   Muzammil Ahamed Khan
