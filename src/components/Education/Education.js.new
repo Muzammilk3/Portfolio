@@ -1,0 +1,228 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { FiCalendar, FiMapPin, FiAward, FiEye } from 'react-icons/fi';
+import './Education.css';
+
+const Education = ({ darkMode }) => {
+  const [ref, inView] = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = (imageSrc, title) => {
+    setSelectedImage({ src: imageSrc, title });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+    setIsModalOpen(false);
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6 }
+    }
+  };
+
+  const educationData = [
+    {
+      degree: "B.E - Computer Science & Engineering",
+      institution: "Sri Devi Institute of Technology",
+      location: "Mangalore",
+      period: "2022 - 2026",
+      cgpa: "CGPA: 8.4"
+    },
+    {
+      degree: "Pre-University College (PUC)",
+      institution: "Sahyadri Composite PU College",
+      location: "Thirthahalli", 
+      period: "2020 - 2022",
+      score: "74.16%"
+    },
+    {
+      degree: "SSLC (10th Standard)",
+      institution: "Sri Malenadu English Medium High School Bejjavalli",
+      location: "Thirthahalli",
+      period: "2020",
+      score: "77.6%"
+    }
+  ];
+
+  const certifications = [
+    {
+      name: "1st Place - Intra-College Technical Round",
+      issuer: "Sri Devi Institute of Technology",
+      year: "2025",
+      description: "Demonstrated strong problem-solving skills in a competitive coding challenge among participants",
+      image: "/certificates/intra-college-technical.jpg"
+    },
+    {
+      name: "Winner - IT Quiz Challenge, YENIXA 2.0",
+      issuer: "Technical Event Competition @ Yenepoya Institute of Technology",
+      year: "2025", 
+      description: "Secured first place by showcasing deep technical knowledge and fast reasoning under timed conditions",
+      image: "/certificates/yenixa-quiz.jpg"
+    },
+    {
+      name: "Hackathon Participant - Hack Summit",
+      issuer: "Hack Summit 2025 @ P. A. College of Engineering Mangalore",
+      year: "2025",
+      description: "Collaborated in a national-level hackathon to develop a full-stack cybersecurity & website security solution under time constraints",
+      image: "/certificates/hack-summit.jpg"
+    },
+    {
+      name: "Hackathon Participant - Hack Yugma",
+      issuer: "Hack Yugma 2025 @ JNN College of Engineering Shivamogga",
+      year: "2025",
+      description: "Participated in competitive programming and development hackathon, gaining experience in rapid prototyping and team collaboration",
+      image: "/certificates/hack-yugma.jpg"
+    }
+  ];
+
+  return (
+    <section id="education" className={`education section ${darkMode ? 'dark' : ''}`} ref={ref}>
+      <div className="container">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="education-content"
+        >
+          <motion.h2 variants={itemVariants} className="section-title">
+            Education & Certifications
+          </motion.h2>
+          
+          <motion.p variants={itemVariants} className="education-description">
+            My educational background and professional certifications
+          </motion.p>
+
+          <div className="education-grid">
+            {/* Education Section */}
+            <motion.div variants={itemVariants} className="education-section">
+              <h3 className="subsection-title">
+                <FiAward className="subsection-icon" />
+                Education
+              </h3>
+              
+              <div className="timeline">
+                {educationData.map((edu, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="timeline-item"
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="timeline-marker"></div>
+                    <div className="timeline-content">
+                      <div className="education-header">
+                        <h4 className="degree">{edu.degree}</h4>
+                        <div className="education-meta">
+                          <div className="institution">
+                            <FiMapPin />
+                            {edu.institution}, {edu.location}
+                          </div>
+                          <div className="period">
+                            <FiCalendar />
+                            {edu.period}
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {(edu.cgpa || edu.score) && (
+                        <div className="grade-info">
+                          <p className="grade">{edu.cgpa || edu.score}</p>
+                        </div>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Certifications Section */}
+            <motion.div variants={itemVariants} className="certifications-section">
+              <h3 className="subsection-title">
+                <FiAward className="subsection-icon" />
+                Certifications & Achievements
+              </h3>
+              
+              <div className="certifications-grid">
+                {certifications.map((cert, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    className="certification-card"
+                    whileHover={{ scale: 1.05, y: -5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="cert-header">
+                      <h4 className="cert-name">{cert.name}</h4>
+                      <div className="cert-actions">
+                        <span className="cert-year">{cert.year}</span>
+                        <button 
+                          className="view-cert-btn"
+                          onClick={() => openModal(cert.image, cert.name)}
+                          title="View Certificate"
+                        >
+                          <FiEye />
+                        </button>
+                      </div>
+                    </div>
+                    <p className="cert-issuer">{cert.issuer}</p>
+                    <p className="cert-description">{cert.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Certificate Modal */}
+      {isModalOpen && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModal}>
+              ×
+            </button>
+            <div className="modal-header">
+              <h3>{selectedImage?.title}</h3>
+            </div>
+            <div className="modal-body">
+              <img 
+                src={selectedImage?.src} 
+                alt={selectedImage?.title}
+                className="certificate-image"
+                onError={(e) => {
+                  e.target.src = '/placeholder-certificate.jpg';
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Education;
