@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio website built with React.js featuring smooth animations, dark/light theme toggle, and professional design showcasing my skills as a Full Stack Developer.
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://your-portfolio-url.com)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://portfolio-mocha-theta-fds0rw1psn.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/Muzammilk3/Portfolio)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/muzammil-ahamed-khan/)
 
@@ -195,7 +195,7 @@ Contributions, issues, and feature requests are welcome!
 **Muzammil Ahamed Khan**  
 *Full Stack Developer*
 
-- 🌐 **Portfolio**: [Live Demo](https://your-portfolio-url.com)
+- 🌐 **Portfolio**: [Live Demo](https://portfolio-mocha-theta-fds0rw1psn.vercel.app/)
 - 💼 **LinkedIn**: [muzammil-ahamed-khan](https://www.linkedin.com/in/muzammil-ahamed-khan/)
 - 🐱 **GitHub**: [Muzammilk3](https://github.com/Muzammilk3)
 - 📧 **Email**: [muzammilahmedk3@gmail.com](mailto:muzammilahmedk3@gmail.com)
