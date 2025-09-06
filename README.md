@@ -9,7 +9,7 @@ A modern, responsive portfolio website built with React.js featuring animations,
 - **Dark/Light Theme**: Toggle between dark and light themes
 - **Smooth Animations**: Powered by Framer Motion for smooth transitions
 - **Interactive Elements**: Hover effects, scroll animations, and interactive components
-- **Contact Form**: Functional contact form with EmailJS integration
+- **Contact Form**: Functional contact form with Gmail integration
 - **Performance Optimized**: Fast loading and optimized for performance
 
 ## 🛠️ Built With
@@ -18,7 +18,7 @@ A modern, responsive portfolio website built with React.js featuring animations,
 - **Animations**: Framer Motion, AOS (Animate On Scroll)
 - **Icons**: React Icons
 - **Styling**: CSS3 with custom properties and responsive design
-- **Form Handling**: EmailJS
+- **Form Handling**: Gmail integration
 - **Deployment**: Ready for deployment on Vercel, Netlify, or GitHub Pages
 
 ## 📱 Sections
