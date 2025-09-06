@@ -44,7 +44,7 @@ const Projects = ({ darkMode }) => {
       image: "/AuditX.png",
       technologies: ["React.js", "Node.js", "MongoDB", "Express.js", "PDF Generator", "Security Scanner", "Performance Analyzer"],
       githubUrl: "https://github.com/Muzammilk3/auditx",
-      liveUrl: "https://auditx-demo.com",
+      liveUrl: "https://audit-x.vercel.app/",
       features: [
         "Comprehensive security vulnerability scanning",
         "Performance analysis and optimization suggestions",
@@ -58,14 +58,35 @@ const Projects = ({ darkMode }) => {
     },
     {
       id: 2,
+      title: "Custom Form Builder",
+      category: "fullstack",
+      description: "A MERN stack application for creating interactive forms with drag & drop, cloze, and comprehension questions.",
+      longDescription: "Custom Form Builder is a powerful MERN stack application that enables users to create interactive forms with advanced features like drag & drop, fill-in-the-blank (cloze), and comprehension questions. The platform supports form analytics, CSV export, and a modern UI for seamless form creation and response management. Built with React, Node.js, Express, and MongoDB Atlas cloud database.",
+      image: "/custom_form_builder.png", 
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB Atlas", "Tailwind CSS", "Axios"],
+  githubUrl: "https://github.com/Muzammilk3/FORM",
+  liveUrl: "https://form-liart-eight.vercel.app/", 
+      features: [
+        "Create forms with multiple question types",
+        "Drag & drop categorization",
+        "Fill-in-the-blank (cloze) questions",
+        "Comprehension questions with multiple choice",
+        "Form responses and analytics",
+        "Export responses to CSV",
+        "Cloud database with MongoDB Atlas",
+        "Modern UI with Tailwind CSS"
+      ]
+    },
+    {
+      id: 3,
       title: "Face Recognition Attendance System",
       category: "fullstack",
       description: "A desktop application using Python, OpenCV, and Tkinter for automatic attendance tracking with anti-spoofing measures.",
       longDescription: "Developed a sophisticated face recognition attendance system as a desktop application using Python, OpenCV, and Tkinter. The system features advanced facial recognition algorithms for automatic attendance tracking, integrated anti-spoofing measures to prevent fraudulent check-ins, and stores attendance data with timestamps in a local database. The application provides a user-friendly interface for administrators to manage attendance records and generate reports.",
       image: "/face_recognition_project.png",
       technologies: ["Python", "OpenCV", "Tkinter", "SQLite", "Machine Learning", "Computer Vision", "NumPy"],
-      githubUrl: "https://github.com/Muzammilk3/face-recognition-attendance",
-      liveUrl: "https://face-attendance-demo.com",
+  githubUrl: "https://github.com/Muzammilk3/Face_recognition",
+  
       features: [
         "Real-time face detection and recognition",
         "Automatic attendance marking with timestamps",
@@ -78,15 +99,15 @@ const Projects = ({ darkMode }) => {
       ]
     },
     {
-      id: 3,
+      id: 4,
       title: "E-Corp: Secure Authentication System",
       category: "fullstack",
       description: "A comprehensive security platform built during a hackathon featuring Safe Browsing, Spam Protection, Deepfake Detection, and Zero-Auth Sign-In.",
       longDescription: "E-Corp is a cutting-edge secure authentication system developed during a hackathon that integrates multiple security features into a unified platform. The system includes Safe Browsing protection, Spam Email Protection, Deepfake Detection capabilities, innovative Zero-Auth Sign-In technology, and Steganography features. This comprehensive security solution addresses modern cybersecurity challenges with advanced algorithms and user-friendly interfaces.",
       image: "/E-Corp_project.png",
       technologies: ["React.js", "Node.js", "Machine Learning", "Computer Vision", "Cryptography", "WebRTC", "TensorFlow"],
-      githubUrl: "https://github.com/Muzammilk3/e-corp-security",
-      liveUrl: "https://e-corp-demo.com",
+githubUrl: "https://github.com/Muzammilk3/E-CORP",
+ 
       features: [
         "Safe Browsing protection against malicious websites",
         "Advanced spam email detection and filtering",
@@ -99,15 +120,15 @@ const Projects = ({ darkMode }) => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: "Healthcare Management System",
       category: "fullstack",
       description: "A complete healthcare management solution for managing patient records, appointments, and medical history with robust security measures.",
       longDescription: "Created a comprehensive full-stack healthcare management system designed to streamline medical practice operations. The system securely manages patient records, appointment scheduling, medical history tracking, and prescription management. Built with HIPAA compliance in mind, it features role-based access control, encrypted data storage, and audit trails. The platform includes separate interfaces for doctors, patients, and administrative staff.",
       image: "/Healthcare.jpg",
       technologies: ["React.js", "Node.js", "PostgreSQL", "Express.js", "JWT", "Encryption", "Chart.js", "Socket.io"],
-      githubUrl: "https://github.com/Muzammilk3/healthcare-management",
-      liveUrl: "https://healthcare-demo.com",
+      githubUrl: "https://github.com/Muzammilk3/AI-powered-Healthcare-management-System",
+  
       features: [
         "Secure patient record management with encryption",
         "Appointment scheduling and calendar integration",
@@ -204,7 +225,7 @@ const Projects = ({ darkMode }) => {
                           href={project.liveUrl} 
                           target="_blank" 
                           rel="noopener noreferrer"
-                          className="project-link"
+                          className={`project-link${[3,4,5].includes(project.id) ? ' hide-live-demo' : ''}`}
                         >
                           <FiExternalLink />
                         </a>
@@ -293,7 +314,7 @@ const Projects = ({ darkMode }) => {
                     href={selectedProject.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="btn-primary"
+                    className={`btn-primary${[3,4,5].includes(selectedProject?.id) ? ' hide-live-demo' : ''}`}
                   >
                     <FiExternalLink /> Live Demo
                   </a>

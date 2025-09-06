@@ -1,9 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FiSun, FiMoon, FiMenu, FiX } from 'react-icons/fi';
 import './Navbar.css';
 
 const Navbar = ({ darkMode, toggleTheme }) => {
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const lastScrollY = useRef(window.scrollY);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < 10) {
+        setIsNavbarVisible(true); // Always show at very top
+      } else if (currentScrollY > lastScrollY.current) {
+        setIsNavbarVisible(false); // Hide on scroll down
+      } else if (currentScrollY < lastScrollY.current) {
+        setIsNavbarVisible(true); // Show on scroll up
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -91,7 +109,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`navbar ${isScrolled ? 'scrolled' : ''} ${darkMode ? 'dark' : ''}`}
+      className={`navbar ${isScrolled ? 'scrolled' : ''} ${darkMode ? 'dark' : ''} ${isNavbarVisible ? 'visible' : ''}`}
     >
       <div className="nav-container">
         <motion.div
@@ -179,8 +197,9 @@ const Navbar = ({ darkMode, toggleTheme }) => {
           </motion.a>
         ))}
       </div>
+
     </motion.nav>
   );
-};
+}
 
 export default Navbar;

@@ -1,3 +1,4 @@
+
 .navbar {
   position: fixed;
   top: 0;
@@ -7,8 +8,30 @@
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   z-index: 9999;
-  transition: all 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
   pointer-events: auto;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbar:not(.visible) {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.navbar:hover {
+  background: rgba(245, 245, 245, 1);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08), 0 1.5px 4px 0 rgba(0,0,0,0.04);
+}
+
+.navbar.dark:hover {
+  background: rgba(30, 41, 59, 0.98);
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18), 0 1.5px 4px 0 rgba(0,0,0,0.10);
 }
 
 .navbar.dark {

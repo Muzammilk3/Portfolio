@@ -1,3 +1,6 @@
+.hide-live-demo {
+  display: none !important;
+}
 .projects {
   background: var(--bg-primary);
   position: relative;
