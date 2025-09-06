@@ -71,10 +71,10 @@ const About = ({ darkMode }) => {
                 </motion.p>
                 
                 <motion.p variants={itemVariants} className="description-text">
-                  With over 3+ years of experience in web development, I have successfully completed 15+ projects 
-                  and worked with 25+ happy clients. My expertise spans across the MERN stack, and I have hands-on 
-                  experience building responsive web applications, RESTful APIs, and user-friendly interfaces. I'm 
-                  always eager to learn new technologies and take on challenging projects that push the boundaries 
+                  My experience in web development includes successful completion of over 4+ projects.
+                  My expertise spans across the MERN stack, and I have hands-on
+                  experience building responsive web applications, RESTful APIs, and user-friendly interfaces. I'm
+                  always eager to learn new technologies and take on challenging projects that push the boundaries
                   of what's possible.
                 </motion.p>
                 
