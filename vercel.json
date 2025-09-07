@@ -23,6 +23,10 @@
       "src": "/manifest.json", 
       "dest": "/manifest.json" 
     },
+    {
+      "src": "/(.*\\.(png|jpg|jpeg|gif|svg|webp|ico|pdf))",
+      "dest": "/$1"
+    },
     { 
       "src": "/(.*)", 
       "dest": "/index.html" 
